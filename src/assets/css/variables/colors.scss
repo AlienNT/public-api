@@ -1,0 +1,33 @@
+$primaryColor : #463F3A;
+$secondaryColor: #8A817C;
+$alternateColor: #E0AFA0;
+$semiMediumColor: #BCB8B1;
+$mediumColor: #F4F3EE;
+$lightColor: #f6f5f5;
+
+//$primaryColor : #212529;
+//$secondaryColor: #343A40;
+//$alternateColor: #495057;
+//$semiMediumColor: #6C757D;
+//$mediumColor: #ADB5BD;
+//$semiLightColor: #CED4DA;
+//$lightColor: #DEE2E6;
+//$semiLightestColor: #E9ECEF;
+//$lightestColor: #F8F9FA;
+
+$headerBGColor: $primaryColor;
+$titleColor: $secondaryColor;
+$scrollTrackDefaultColor: lighten($secondaryColor, 5%);
+$logoColor: #ffffff;
+
+
+$mainBGColor: $semiMediumColor;
+$entryBGColor: $mediumColor;
+$entryLinkBGColor: rgba(66, 62, 115, 0.63);
+$categoriesBGColor: $secondaryColor;
+
+$sidebarBGColor: $entryBGColor;
+$sidebarItemBGColor: $secondaryColor;
+
+$correctColor: #538a53;
+$incorrectColor: #a66363;

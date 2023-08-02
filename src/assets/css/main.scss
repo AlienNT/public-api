@@ -1,0 +1,21 @@
+@import "normalize";
+@import "variables";
+@import "flex-grid";
+@import "variables/mixins";
+@import "variables/classes-for-extends";
+@import "transitions";
+@import "scroll";
+
+* {
+  font-family: monospace, sans-serif;
+}
+
+.light {
+  background: $mainBGColor;
+}
+
+@for $i from 1 through 6 {
+  .order-#{$i} {
+    order: #{$i};
+  }
+}

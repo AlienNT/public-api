@@ -1,0 +1,30 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  margin-right: -15px;
+  margin-left: -15px;
+  flex: 1 1 auto;
+}
+
+.col {
+  padding-left: 15px;
+  padding-right: 15px;
+  word-break: break-all;
+  flex: 1 1 50%;
+}
+
+@for $i from 1 to 12 {
+  .col-#{$i} {
+    padding-left: 15px;
+    padding-right: 15px;
+    flex: 1 1 calc(100% / 12 * $i);
+    width: calc(100% / 12 * $i);
+  }
+}

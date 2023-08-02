@@ -1,0 +1,33 @@
+@import "classes-for-extends";
+
+@mixin bgDarken($color, $percent: 10%) {
+  @extend .transition;
+  background: $color;
+
+  &:hover {
+    background: darken($color, $percent);
+  }
+}
+
+@mixin bgLighten($color, $percent: 10%) {
+  @extend .transition;
+  background: $color;
+
+  &:hover {
+    background: lighten($color, $percent);
+  }
+}
+
+@mixin maskImage($url, $size: contain, $position: center, $repeat: no-repeat) {
+  mask-image: $url;
+  mask-position: $position;
+  mask-size: $size;
+  mask-repeat: $repeat;
+}
+
+@mixin textOverflow($maxWidth: unset) {
+  max-width: $maxWidth;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
