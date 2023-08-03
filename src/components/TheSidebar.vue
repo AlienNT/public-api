@@ -51,7 +51,7 @@ function onReset() {
 $lightColor: rgba(100, 149, 237, 0.54);
 .sidebar {
   width: 100%;
-  padding: 15px 0;
+  padding: 15px;
   height: calc(100vh - #{$headerHeight});
 }
 
@@ -70,6 +70,7 @@ $lightColor: rgba(100, 149, 237, 0.54);
   @media #{$mediaSmallMobile} {
     max-width: 100%;
     width: 100%;
+    overflow-x: hidden;
   }
 }
 

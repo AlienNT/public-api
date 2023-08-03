@@ -40,11 +40,12 @@ onMounted(() => {
 }
 
 .container {
-  display: flex;
   height: 100%;
   width: 100%;
   overflow-y: auto;
-  flex: 1 1 auto;
+  .row {
+    height: 100%;
+  }
 }
 
 .sidebar-col {
@@ -63,6 +64,9 @@ onMounted(() => {
       transform: translateX(-100%);
 
     }
+  }
+  @media #{$mediaSmallMobile} {
+    padding: 0;
   }
 }
 
