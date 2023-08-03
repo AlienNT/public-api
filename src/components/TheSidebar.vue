@@ -67,6 +67,10 @@ $lightColor: rgba(100, 149, 237, 0.54);
   padding: 0 15px 15px;
   border-radius: 5px;
   height: 100%;
+  @media #{$mediaSmallMobile} {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .not-empty {
