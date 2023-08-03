@@ -1,5 +1,6 @@
 import {computed, reactive} from "vue";
 import {useRequest} from "./useRequest.js";
+import axios from "axios";
 
 const {fetchAPI} = useRequest()
 const state = reactive({
@@ -18,7 +19,7 @@ export function useApiHealth() {
 
     async function fetchApiHealth() {
         try {
-            const {alive} = await fetchAPI('/health')
+            const {alive} = await axios.get('https://api.publicapis.org/health')
 
             setIsAlive(alive)
         } catch (e) {}

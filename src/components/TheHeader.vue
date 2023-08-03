@@ -10,9 +10,9 @@ const {isNavActive, setIsNavActive, scrollContentContainer, scrollToTop} = useEv
 const {isAlive, fetchApiHealth} = useApiHealth()
 
 onMounted(() => {
-  setInterval(async () => {
+  /*setInterval(async () => {
     await fetchApiHealth()
-  }, 10000)
+  }, 10000)*/
 })
 
 function onScroll() {
@@ -29,7 +29,7 @@ function onScroll() {
               @on-click="onScroll"
           />
         </div>
-        <div class="col alive-col">
+        <div v-if="false" class="col alive-col">
           <LiveAPIStatus
               :is-alive="isAlive"
           />
@@ -59,11 +59,13 @@ function onScroll() {
 .header-row {
   justify-content: space-between;
 }
+
 .logo-col {
   @media #{$mediaSmallMobile} {
     max-width: 130px;
   }
 }
+
 .burger-col {
   display: none;
   flex: none;
