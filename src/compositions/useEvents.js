@@ -28,9 +28,7 @@ export function useEvents() {
                 top: 0,
                 behavior: "smooth"
             })
-        } catch (e) {
-            console.log('scroll error', e)
-        }
+        } catch (e) {}
     }
 
 

@@ -26,7 +26,7 @@ const domTitle = computed(() => {
       :title="domTitle"
       :aria-label="domTitle"
   >
-    {{value}}
+    {{ value }}
   </div>
 </template>
 
@@ -37,6 +37,7 @@ const domTitle = computed(() => {
   font-weight: bolder;
   color: darken($secondaryColor, 15%);
   font-size: 24px;
+
   @media #{$mediaMobile} {
     font-size: 18px;
   }

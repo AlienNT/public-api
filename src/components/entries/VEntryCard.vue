@@ -24,7 +24,6 @@ const fields = computed(() => objectToArray(props.entry))
 
 function onFilter(e) {
   setFilter(filter.value === e ? null : e)
-  console.log('set')
   setShowCount(12)
 }
 </script>

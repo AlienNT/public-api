@@ -14,7 +14,7 @@
   background: $mainBGColor;
 }
 
-@for $i from 1 through 6 {
+@for $i from 1 through 12 {
   .order-#{$i} {
     order: #{$i};
   }

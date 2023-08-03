@@ -13,10 +13,6 @@ onMounted(() => {
   document.querySelector('html').classList.add('light')
   fetchEntries()
 })
-
-function onClick(e) {
-  console.log('ionClick', e)
-}
 </script>
 
 <template>
@@ -63,8 +59,10 @@ function onClick(e) {
     z-index: 2;
     &:not(.active) {
       left: 0;
+      top: 0;
       transform: translateX(-100%);
       z-index: 1;
+      transition: transform 0s;
     }
   }
 }

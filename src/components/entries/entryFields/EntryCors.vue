@@ -7,7 +7,7 @@ const props = defineProps({
     default: null
   },
   value: {
-    type: String,
+    type: Boolean,
     default: null
   },
 })
@@ -16,7 +16,7 @@ const emit = defineEmits([
 ])
 
 const isCors = computed(() => {
-  return props.value === 'yes'
+  return props.value
 })
 
 const domTitle = computed(() => {
@@ -34,9 +34,6 @@ const domTitle = computed(() => {
   >
     <span class="title">
       {{ type }}
-    </span>
-    <span class="value">
-      {{ isCors ? 'yes' : 'no' }}
     </span>
   </div>
 </template>
@@ -56,10 +53,10 @@ $corsTitleColor: #fff;
 
   .title {
     text-transform: uppercase;
-    padding: 5px 10px;
-    border-radius: 5px 0 0 5px;
+    padding: 5px;
+    border-radius: 5px;
     color: $corsTitleColor;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .value {

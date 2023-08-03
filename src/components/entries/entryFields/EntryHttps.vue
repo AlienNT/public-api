@@ -31,7 +31,8 @@ const domTitle = computed(() => {
       <span class="icon"/>
     </div>
     <span class="title">
-      {{ value ? 'HTTPS' : 'HTTP' }}
+      <span v-if="value">HTTPS</span>
+      <span v-else>HTTP<span class="hide-symbol">S</span></span>
     </span>
   </div>
 </template>
@@ -48,8 +49,8 @@ $transparentBG: .92;
 
   .icon {
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background: #ffffff;
   }
 
@@ -59,7 +60,9 @@ $transparentBG: .92;
   }
 
   .title {
-    padding: 5px 10px;
+    padding: 5px 5px;
+    font-size: 12px;
+    white-space: nowrap;
   }
 }
 
@@ -93,5 +96,8 @@ $transparentBG: .92;
   .title {
     color: darken($incorrectColor, 15%);
   }
+}
+.hide-symbol {
+  opacity: .2;
 }
 </style>

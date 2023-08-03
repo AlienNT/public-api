@@ -31,6 +31,6 @@ defineProps({
 }
 
 .entries-li {
-  flex: 1 1 50%;
+  flex: 1 1 100%;
 }
 </style>

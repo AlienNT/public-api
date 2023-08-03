@@ -6,6 +6,7 @@ import EntryCategory from "./EntryCategory.vue";
 import EntryHttps from "./EntryHttps.vue";
 import EntryCors from "./EntryCors.vue";
 import EntryLink from "./EntryLink.vue";
+import EntryAuth from "./EntryAuth.vue";
 
 const props = defineProps({
   type: {
@@ -40,20 +41,25 @@ const defineComponent = computed(() => {
         component: EntryCategory,
         order: 2
       };
+    case 'auth':
+      return {
+        component: EntryAuth,
+        order: 4
+      };
     case 'https':
       return {
         component: EntryHttps,
-        order: 4
+        order: 5
       };
     case 'cors':
       return {
         component: EntryCors,
-        order: 5
+        order: 6
       };
     case 'link':
       return {
         component: EntryLink,
-        order: 6
+        order: 7
       };
     default:
       return null
@@ -71,13 +77,17 @@ function onClick(e) {
     emit('onFilter', e)
   }
 }
+
+const fieldClass = computed(() => {
+  return `entry-field__${props.type?.toLowerCase()}`
+})
 </script>
 
 <template>
   <div
       v-if="component"
       class="entry-field"
-      :class="orderClass"
+      :class="fieldClass"
   >
     <component
         :is="component"
@@ -90,26 +100,53 @@ function onClick(e) {
 <style scoped lang="scss">
 .entry-field {
   flex: 100%;
-}
 
-.order-1 {
-  flex: 1 1 50%;
-}
+  &[class$="__api"] {
+    order: 1;
+    flex: 1 1 auto;
 
-.order-2 {
-  flex: 0 1 min-content;
-}
+  }
 
-.order-4, .order-5 {
-  flex: none;
-  display: flex;
-  height: 30px;
-}
+  &[class$="__description"] {
+    order: 3;
+    margin-bottom: 30px;
+  }
 
-.order-6 {
-  flex: 1 1 fit-content;
-  justify-content: flex-end;
-  display: flex;
+  &[class$="__auth"],
+  &[class$="__https"],
+  &[class$="__cors"],
+  &[class$="__link"] {
+    order: 3;
+    flex: none;
+    justify-self: flex-end;
+    align-self: center;
+  }
+  &[class$="__auth"] {
+    flex: 0 0 110px;
+    @media #{$mediaSmallMobile} {
+      flex: 1 1 100%;
+    }
+  }
+
+  &[class$="__https"] {
+    order: 3;
+    //margin-left: auto;
+  }
+
+  &[class$="__cors"] {
+    order: 3;
+  }
+
+  &[class$="__link"] {
+    order: 3;
+    margin-left: auto;
+    //flex: 1 1 25%;
+  }
+
+  &[class$="__category"] {
+    order: 2;
+    flex: none;
+  }
 }
 
 </style>

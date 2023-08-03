@@ -19,11 +19,9 @@ export function useState() {
     }
 
     async function fetchCategories() {
-        console.log('fetchCategories')
         const {data, status} = await fetchAPI('/categories')
 
         if (data && status === 200) {
-            console.log('response', data, status)
             setCategories(data?.categories)
         }
     }

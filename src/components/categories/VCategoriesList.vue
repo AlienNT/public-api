@@ -41,7 +41,6 @@ const {setIsNavActive} = useEvents()
 
 function onClick(e) {
   setFilter(filter.value === e ? null : e)
-  console.log('set')
   setShowCount(12)
   setIsNavActive(false)
 }

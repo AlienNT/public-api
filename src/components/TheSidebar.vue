@@ -72,6 +72,7 @@ $lightColor: rgba(100, 149, 237, 0.54);
 .not-empty {
   &:hover {
     .reset {
+      z-index: 1;
       opacity: 1;
     }
   }
@@ -132,6 +133,7 @@ label {
   right: 5px;
   bottom: 0;
   cursor: pointer;
+  z-index: -1;
 
   &:hover {
     transform: translateY(-50%) scale(1.1);

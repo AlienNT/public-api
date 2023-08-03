@@ -49,6 +49,7 @@ $itemActiveColor: #ffffff;
 .active {
   position: sticky;
   top: 60px;
+  bottom: -10px;
   border-radius: 5px;
   color: $itemActiveColor;
   background: darken($sidebarItemBGColor, 10%);

@@ -25,7 +25,8 @@ const emit = defineEmits([
   @include maskImage(url("../../assets/images/logo_code_3.svg"));
   height: 40px;
   display: block;
-  width: 120px;
+  max-width: 120px;
+  width: 100%;
   background-color: $logoColor;
 }
 </style>

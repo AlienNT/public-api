@@ -23,7 +23,7 @@ const entriesItem = ref(null)
 
 <style scoped>
 .entries-list-item {
-  padding: 15px;
+  padding: 10px 15px;
   height: 100%;
 
 }
