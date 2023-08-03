@@ -50,20 +50,20 @@ onMounted(() => {
 .sidebar-col {
   min-width: 240px;
   overflow-y: auto;
-  transition: .2s ease;
-  backdrop-filter: blur(4px);
+  transition: .4s ease;
 
   @media #{$mediaMobile} {
     position: fixed;
     width: 100%;
     z-index: 2;
+    backdrop-filter: blur(4px);
     &:not(.active) {
       left: 0;
-      top: 0;
+      top: $headerHeight;
       transform: translateX(-100%);
-      z-index: 1;
-      transition: transform 0s;
+
     }
   }
 }
+
 </style>
