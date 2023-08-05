@@ -16,16 +16,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="main scroll-container">
+  <main
+      class="main scroll-container"
+      :class="isNavActive && 'active'"
+  >
     <div class="container">
       <div class="row">
         <div
             class="col-2 sidebar-col"
-            :class="isNavActive && 'active'"
+
         >
           <TheSidebar/>
         </div>
-        <div class="col-10">
+        <div
+            class="col-10 content-col"
+            :class="isNavActive && 'touch-actions-blocked'"
+        >
           <TheContent/>
         </div>
       </div>
@@ -35,20 +41,29 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .main {
-  width: 100%;
+  width: 100vw;
   height: calc(100% - #{$headerHeight});
+  overflow-x: hidden;
+
+  &:not(.active) {
+    top: $headerHeight;
+    //transform: translateX(-50%);
+
+  }
 }
 
 .container {
   height: 100%;
   width: 100%;
   overflow-y: auto;
+
   .row {
     height: 100%;
   }
 }
 
 .sidebar-col {
+  overscroll-behavior: none;
   min-width: 240px;
   overflow-y: auto;
   transition: .4s ease;
@@ -58,16 +73,25 @@ onMounted(() => {
     width: 100%;
     z-index: 2;
     backdrop-filter: blur(4px);
-    &:not(.active) {
-      left: 0;
-      top: $headerHeight;
-      transform: translateX(-100%);
 
+    &:not(.active &) {
+      transform: translateX(-100%);
     }
+
+
   }
   @media #{$mediaSmallMobile} {
     padding: 0;
   }
 }
 
+@media #{$mediaMobile} {
+
+}
+
+.touch-actions-blocked {
+  * {
+    touch-action: none;
+  }
+}
 </style>

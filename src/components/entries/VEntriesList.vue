@@ -10,23 +10,21 @@ defineProps({
 
 <template>
   <ul class="entries-list">
-    <transition-group name="fade" appear>
-      <li
-          class="entries-li"
-          v-for="(entry, key) in entriesList"
-          :key="key"
-      >
-        <VEntriesListItem
-            :entry="entry"
-        />
-      </li>
-    </transition-group>
+    <li
+        class="entries-li"
+        v-for="(entry, key) in entriesList"
+        :key="key"
+    >
+      <VEntriesListItem
+          :entry="entry"
+      />
+    </li>
   </ul>
 </template>
 
 <style scoped>
 .entries-list {
-  display: flex;
+  //display: flex;
   flex-wrap: wrap;
 }
 

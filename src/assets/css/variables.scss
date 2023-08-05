@@ -1,6 +1,9 @@
 @import "variables/colors";
 
 $headerHeight: 50px;
+$appHeight: var(--app-height);
+
+$mouseDevice: '(hover: hover) and (pointer: fine)';
 
 $mediaMobile: 'all and (max-width: 768px)';
-$mediaSmallMobile: 'all and (max-width: 380px)'
+$mediaSmallMobile: 'all and (max-width: 414px)'

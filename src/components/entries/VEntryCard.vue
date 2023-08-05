@@ -1,5 +1,5 @@
 <script setup>
-import {computed} from "vue";
+import {computed, onMounted, ref} from "vue";
 import {useEntries} from "../../compositions/useEntries.js";
 import EntryField from "./entryFields/EntryField.vue";
 
@@ -21,6 +21,13 @@ function objectToArray(obj) {
 }
 
 const fields = computed(() => objectToArray(props.entry))
+const isMounted = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    isMounted.value = true
+  }, 800)
+})
 
 function onFilter(e) {
   setFilter(filter.value === e ? null : e)
@@ -29,7 +36,7 @@ function onFilter(e) {
 </script>
 
 <template>
-  <div class="entry-card">
+  <div class="entry-card" :class="isMounted && 'show'">
     <template
         v-for="(field, key) in fields"
         :key="key"
@@ -55,5 +62,12 @@ $entryCardShadow: rgba(0, 0, 0, 0.55);
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  transition: .2s ease;
+  //opacity: 0;
+  //transform: translateX(100%);
+}
+.show {
+  //opacity: 1;
+  //transform: translateX(0);
 }
 </style>

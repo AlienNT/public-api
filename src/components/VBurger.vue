@@ -42,6 +42,7 @@ $burgerLineColor: #fff;
     border-radius: 5px;
     background: $burgerLineColor;
   }
+
   &:before {
     width: 100%;
   }
@@ -50,9 +51,11 @@ $burgerLineColor: #fff;
     width: 50%;
   }
 
-  &:hover {
-    &:after {
-      width: 100%;
+  @media #{$mouseDevice} {
+    &:hover {
+      &:after {
+        width: 100%;
+      }
     }
   }
 }

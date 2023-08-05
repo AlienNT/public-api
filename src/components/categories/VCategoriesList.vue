@@ -66,7 +66,4 @@ function onClick(e) {
 </template>
 
 <style scoped>
-.categories {
-  height: calc(100% - 30px);
-}
 </style>

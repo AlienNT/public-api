@@ -25,6 +25,7 @@ const entriesItem = ref(null)
 .entries-list-item {
   padding: 10px 15px;
   height: 100%;
+  overflow-x: hidden;
 
 }
 </style>

@@ -9,12 +9,13 @@
   ::-webkit-scrollbar-track {
     background: transparentize(lighten($scrollTrackDefaultColor, 10%), .2);
     border-radius: 5px;
+    margin-left: -5px;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: darken($scrollTrackDefaultColor, 5%);
-    border-radius: 5px;
+    //border-radius: 5px;
   }
 
   /* Handle on hover */

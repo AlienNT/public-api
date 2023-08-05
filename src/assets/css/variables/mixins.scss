@@ -1,11 +1,14 @@
 @import "classes-for-extends";
+@import "../variables";
 
 @mixin bgDarken($color, $percent: 10%) {
   @extend .transition;
   background: $color;
 
-  &:hover {
-    background: darken($color, $percent);
+  @media #{$mouseDevice} {
+    &:hover {
+      background: darken($color, $percent);
+    }
   }
 }
 
@@ -13,8 +16,10 @@
   @extend .transition;
   background: $color;
 
-  &:hover {
-    background: lighten($color, $percent);
+  @media #{$mouseDevice}{
+    &:hover {
+      background: lighten($color, $percent);
+    }
   }
 }
 
@@ -30,4 +35,25 @@
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
+}
+
+@mixin useScrollBar($pr: 15px, $scrollWidth: 6px) {
+  padding-right: calc($pr - $scrollWidth);
+  overscroll-behavior: contain;
+  ::-webkit-scrollbar {
+    width: $scrollWidth;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparentize(lighten($scrollTrackDefaultColor, 10%), .2);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: darken($scrollTrackDefaultColor, 5%);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: darken($scrollTrackDefaultColor, 10%);
+  }
 }

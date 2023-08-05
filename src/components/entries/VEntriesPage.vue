@@ -12,7 +12,6 @@ const {
   fetchEntries,
   setShowCount,
   showCount,
-  entryFields,
   entriesFilters,
   setEntriesFilters
 } = useEntries()
@@ -77,36 +76,40 @@ function onFilter(e) {
 </script>
 
 <template>
-  <div class="entries-page" ref="entriesRef">
-    <VEntriesFilter
-        :filters="entriesFilters"
-        @on-click="onFilter"
-    />
-    <transition appear name="fade" mode="out-in">
-      <VEntriesList
-          v-if="filteredEntries?.length"
-          :entries-list="filteredEntries"
+  <div class="entries-page">
+    <div class="entries-filters-wrapper">
+      <VEntriesFilter
+          :filters="entriesFilters"
+          @on-click="onFilter"
       />
-      <div
-          class="loading"
-          v-else-if="!isLoad"
-      >
-        loading...
-      </div>
-      <div
-          v-else
-          class="empty-list"
-      >
-        <div class="title">
-          no entries
+    </div>
+    <div class="entries-list-wrapper" ref="entriesRef">
+      <transition appear name="fade" mode="out-in">
+        <VEntriesList
+            v-if="filteredEntries?.length"
+            :entries-list="filteredEntries"
+        />
+        <div
+            class="loading"
+            v-else-if="!isLoad"
+        >
+          loading...
         </div>
-      </div>
-    </transition>
-    <TheFooter/>
+        <div
+            v-else
+            class="empty-list"
+        >
+          <div class="title">
+            no entries
+          </div>
+        </div>
+      </transition>
+      <TheFooter/>
+    </div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .entries-page {
   word-break: break-all;
   height: 100%;
@@ -116,8 +119,18 @@ function onFilter(e) {
   justify-content: space-between;
   overflow-x: hidden;
 }
+.entries-filters-wrapper {
 
+}
+.entries-list-wrapper {
+  height: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
 .empty-list, .loading {
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -125,6 +138,7 @@ function onFilter(e) {
 }
 
 .empty-list {
+  overflow-y: auto;
   .title {
     font-size: 24px;
     &:first-letter {
